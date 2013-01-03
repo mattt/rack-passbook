@@ -1,0 +1,6 @@
+source :rubygems
+
+gem 'rack-passbook', :require => 'rack/passbook', :path => File.join(__FILE__, "../..")
+
+gem 'thin'
+gem 'pg'
