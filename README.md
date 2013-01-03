@@ -12,6 +12,12 @@ This project is an example implementation of this web service specification in R
 
 > If you're just starting out Passbook development, you should definitely check out [this great two-part tutorial](http://www.raywenderlich.com/20734/beginning-passbook-part-1) by [Marin Todorov](http://www.raywenderlich.com/about#marintodorov) ([Part 1](http://www.raywenderlich.com/20734/beginning-passbook-part-1) [Part 2](http://www.raywenderlich.com/20785/beginning-passbook-in-ios-6-part-22)).
 
+## Installation
+
+```
+$ gem install rack-passbook
+```
+
 ## Requirements
 
 - Ruby 1.9
