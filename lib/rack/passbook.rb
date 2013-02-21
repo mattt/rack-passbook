@@ -3,6 +3,7 @@ require 'rack/contrib'
 
 require 'sinatra/base'
 require 'sinatra/param'
+require 'rack'
 
 require 'sequel'
 
@@ -73,7 +74,6 @@ module Rack
       status = @registration.new? ? 201 : 200
 
       @registration.save
-      p @registration
       halt 406 unless @registration.valid?
 
       halt status
