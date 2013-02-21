@@ -30,7 +30,7 @@ Sequel.migration do
   end
   
   down do
-    drop_table :devices
-    drop_table :registrations
+    drop_table :passbook_devices
+    drop_table :passbook_registrations
   end
 end
