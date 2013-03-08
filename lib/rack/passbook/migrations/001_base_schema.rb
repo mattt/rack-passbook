@@ -1,6 +1,6 @@
 Sequel.migration do
   up do
-    run %{CREATE EXTENSION hstore;}
+    run %{CREATE EXTENSION IF NOT EXISTS hstore;}
 
     create_table :passbook_passes do
       primary_key :id

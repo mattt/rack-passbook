@@ -2,7 +2,7 @@ module Rack
   class Passbook
     if ENV['DATABASE_URL']
       DB = Sequel.connect(ENV['DATABASE_URL'])
-      Sequel::Migrator.run(DB, ::File.join(::File.dirname(__FILE__), "../migrations"))
+      Sequel::Migrator.run(DB, ::File.join(::File.dirname(__FILE__), "../migrations"), table: 'passbook_schema_info')
     end
 
     class Pass < Sequel::Model
