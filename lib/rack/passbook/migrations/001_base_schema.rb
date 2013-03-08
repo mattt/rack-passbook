@@ -2,7 +2,7 @@ Sequel.migration do
   up do
     run %{CREATE EXTENSION hstore;}
 
-    create_table :passbook_devices do
+    create_table :passbook_passes do
       primary_key :id
 
       column :pass_type_identifier, :varchar, unique: true, empty: false
@@ -30,7 +30,7 @@ Sequel.migration do
   end
   
   down do
-    drop_table :passbook_devices
+    drop_table :passbook_passes
     drop_table :passbook_registrations
   end
 end

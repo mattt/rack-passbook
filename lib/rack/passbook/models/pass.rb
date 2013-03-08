@@ -1,7 +1,9 @@
 module Rack
   class Passbook
-    DB = Sequel.connect(ENV['DATABASE_URL'] || "postgres://localhost:5432/passbook_example")
-    Sequel::Migrator.run(DB, ::File.join(::File.dirname(__FILE__), "../migrations"))
+    if ENV['DATABASE_URL']
+      DB = Sequel.connect(ENV['DATABASE_URL'])
+      Sequel::Migrator.run(DB, ::File.join(::File.dirname(__FILE__), "../migrations"))
+    end
 
     class Pass < Sequel::Model
       plugin :json_serializer, naked: true, except: :id 
@@ -10,7 +12,7 @@ module Rack
       plugin :schema
       plugin :typecast_on_load
       
-      self.dataset = :passbook_devices
+      self.dataset = :passbook_passes
       self.strict_param_setting = false
       self.raise_on_save_failure = false
 
