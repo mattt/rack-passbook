@@ -21,6 +21,13 @@ module Rack
 
     disable :raise_errors, :show_exceptions
 
+    configure do
+      if ENV['DATABASE_URL']
+        DB = Sequel.connect(ENV['DATABASE_URL'])
+        Sequel::Migrator.run(DB, ::File.join(::File.dirname(__FILE__), "passbook/migrations"), table: 'passbook_schema_info')
+      end
+    end
+
     before do
       content_type :json
     end
