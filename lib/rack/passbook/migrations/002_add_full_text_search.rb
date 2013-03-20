@@ -1,18 +1,11 @@
 Sequel.migration do
   up do
     add_column :passbook_passes, :tsv, 'TSVector'
-
-    run %{
-      CREATE INDEX tsv_GIN ON passbook_passes \
-        USING GIN(tsv);
-    }
-
-    run %{
-      CREATE TRIGGER TS_tsv \
-        BEFORE INSERT OR UPDATE ON passbook_passes \
-      FOR EACH ROW EXECUTE PROCEDURE \
-        tsvector_update_trigger(tsv, 'pg_catalog.english', pass_type_identifier, serial_number);
-    }
+    add_index :passbook_passes, :tsv, type: "GIN"
+    create_trigger :passbook_passes, :tsv, :tsvector_update_trigger, 
+      args: [:tsv, :'pg_catalog.english', :pass_type_identifier, :serial_number], 
+      events: [:insert, :update], 
+      each_row: true
   end
 
   down do
