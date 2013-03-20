@@ -10,7 +10,7 @@ Sequel.migration do
 
   down do
     drop_column :passbook_passes, :tsv
-    drop_index :passbook_passes, :tsv_GIN
-    drop_trigger :passbook_passes, :TS_tsv
+    drop_index :passbook_passes, :tsv
+    drop_trigger :passbook_passes, :tsv
   end
 end
