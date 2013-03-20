@@ -14,14 +14,14 @@ module Rack
     use Rack::PostBodyContentTypeParser
     helpers Sinatra::Param
 
-    Sequel.extension :core_extensions, :migration, :pg_hstore, :pg_hstore_ops
-
-    autoload :Pass,         ::File.join(::File.dirname(__FILE__), 'passbook/models/pass')
-    autoload :Registration, ::File.join(::File.dirname(__FILE__), 'passbook/models/registration')
+    autoload :Pass,         'rack/passbook/models/pass'
+    autoload :Registration, 'rack/passbook/models/registration'
 
     disable :raise_errors, :show_exceptions
 
     configure do
+      Sequel.extension :core_extensions, :migration, :pg_hstore, :pg_hstore_ops
+
       if ENV['DATABASE_URL']
         DB = Sequel.connect(ENV['DATABASE_URL'])
         Sequel::Migrator.run(DB, ::File.join(::File.dirname(__FILE__), "passbook/migrations"), table: 'passbook_schema_info')
