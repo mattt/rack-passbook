@@ -9,7 +9,6 @@ require 'sequel'
 
 module Rack
   class Passbook < Sinatra::Base
-    VERSION = '0.1.1'
 
     use Rack::PostBodyContentTypeParser
     helpers Sinatra::Param

@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "rack/passbook"
+require "rack/passbook/version"
 
 Gem::Specification.new do |s|
   s.name        = "rack-passbook"
