@@ -1,13 +1,12 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "rack/passbook"
 
 Gem::Specification.new do |s|
   s.name        = "rack-passbook"
   s.authors     = ["Mattt Thompson"]
   s.email       = "m@mattt.me"
   s.homepage    = "http://mattt.me"
-  s.version     = Rack::Passbook::VERSION
+  s.version     = '0.1.1'
   s.platform    = Gem::Platform::RUBY
   s.summary     = "Rack::Passbook"
   s.description = "Automatically generate REST APIs for Passbook registration."

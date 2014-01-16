@@ -9,7 +9,6 @@ require 'sequel'
 
 module Rack
   class Passbook < Sinatra::Base
-    VERSION = '0.1.1'
 
     use Rack::PostBodyContentTypeParser
     helpers Sinatra::Param
@@ -53,7 +52,7 @@ module Rack
       @passes = Pass.filter(pass_type_identifier: params[:pass_type_identifier]).join(Registration.dataset, device_library_identifier: params[:device_library_identifier])
       halt 404 if @passes.empty?
 
-      @passes = @passes.filter('passes.updated_at > ?', params[:passesUpdatedSince]) if params[:passesUpdatedSince]
+      @passes = @passes.filter("#{Pass.table_name}.updated_at > ?", Time.parse(params[:passesUpdatedSince])) if params[:passesUpdatedSince]
 
       if @passes.any?
         {
