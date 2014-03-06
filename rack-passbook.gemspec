@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Mattt Thompson"]
   s.email       = "m@mattt.me"
   s.homepage    = "http://mattt.me"
-  s.version     = '0.1.1'
+  s.version     = '0.2.0'
   s.platform    = Gem::Platform::RUBY
   s.summary     = "Rack::Passbook"
   s.description = "Automatically generate REST APIs for Passbook registration."
