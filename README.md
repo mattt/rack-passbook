@@ -2,13 +2,11 @@
 
 # Rack::Passbook
 
-> This is still in early stages of development, so proceed with caution when using this in a production application. Any bug reports, feature requests, or general feedback at this point would be greatly appreciated.
-
 [Passbook](http://www.apple.com/ios/whats-new/#passbook) is an iOS 6 feature that manages boarding passes, movie tickets, retail coupons, & loyalty cards. Using the [PassKit API](https://developer.apple.com/library/prerelease/ios/#documentation/UserExperience/Reference/PassKit_Framework/_index.html), developers can register web services to automatically update content on the pass, such as gate changes on a boarding pass, or adding credit to a loyalty card.
 
 Apple [provides a specification](https://developer.apple.com/library/prerelease/ios/#documentation/PassKit/Reference/PassKit_WebService/WebService.html) for a REST-style web service protocol to communicate with Passbook, with endpoints to get the latest version of a pass, register / unregister devices to receive push notifications for a pass, and query for passes registered for a device.
 
-This project is an example implementation of this web service specification in Rails, and will serve the basis for a more comprehensive Rails generator in the near future.
+Rack::Passbook provides those specified endpoints.
 
 > If you're just starting out Passbook development, you should definitely check out [this great two-part tutorial](http://www.raywenderlich.com/20734/beginning-passbook-part-1) by [Marin Todorov](http://www.raywenderlich.com/about#marintodorov) ([Part 1](http://www.raywenderlich.com/20734/beginning-passbook-part-1) [Part 2](http://www.raywenderlich.com/20785/beginning-passbook-in-ios-6-part-22)).
 
@@ -68,7 +66,7 @@ GET http://example.com/v1/devices/:deviceLibraryIdentifier/registrations/:passTy
 - **deviceLibraryIdentifier** A unique identifier that is used to identify and authenticate the device.
 - **passTypeIdentifier** The pass’s type, as specified in the pass.
 - **serialNumber** The unique pass identifier, as specified in the pass.
-- **passesUpdatedSince** _Optional_ A tag from a previous request. 
+- **passesUpdatedSince** _Optional_ A tag from a previous request.
 
 **Response**
 
