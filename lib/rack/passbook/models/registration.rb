@@ -20,7 +20,7 @@ module Rack
         validates_presence :device_library_identifier
         validates_unique [:device_library_identifier, :pass_id]
         validates_format /[[:xdigit:]]+/, :push_token
-        validates_exact_length 40, :push_token
+        validates_exact_length 64, :push_token
       end
 
       private
