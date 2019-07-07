@@ -1,5 +1,7 @@
 # Rack::Passbook
 
+> This project is no longer maintained.
+
 [Passbook](https://www.apple.com/ios/whats-new/#passbook)
 manages boarding passes, movie tickets, retail coupons, & loyalty cards. Using the [PassKit API](https://developer.apple.com/documentation/passkit),
 developers can register web services to automatically update content on the pass,
